@@ -1,0 +1,36 @@
+<div class="p-4" style="width:1350px;">
+    <div class="card">
+      <div class="card-body">
+        <div>
+          {{currentPath}}
+        </div>
+        <div class="input-group mb-3 p-2 mt-4">
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="keyword">
+          <button class="btn btn-outline-success" type="button">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>{{customer.id}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.email}}</td>
+              <td><a class="btn btn-outline-success" [routerLink]="['edit', customer.id]">Edit</a></td>
+              <td><a class="btn btn-outline-danger" (click)="deleteCustomer(customer.id)">Delete</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
